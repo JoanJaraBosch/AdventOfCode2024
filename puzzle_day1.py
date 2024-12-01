@@ -21,6 +21,7 @@ def distances():
         i = i + 1
     return distance
 
+
 def similarity():
     x, y = get_data()
     similar = 0
