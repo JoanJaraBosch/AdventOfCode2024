@@ -1,6 +1,7 @@
 import puzzle_day1
 import puzzle_day2
 import puzzle_day3
+import puzzle_day4
 
 if __name__ == '__main__':
 
@@ -20,3 +21,8 @@ if __name__ == '__main__':
         print(puzzle_day3.extract_numbers_from_file())
         print("DAY 3 SECOND PART")
         print(puzzle_day3.calculate_enabled_multiplications())
+    elif int(x) == 4:
+        print("DAY 4 FIRST PART")
+        print(puzzle_day4.count_xmas())
+        print("DAY 4 SECOND PART")
+        print(puzzle_day4.count_mas())
