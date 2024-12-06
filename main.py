@@ -2,6 +2,7 @@ import puzzle_day1
 import puzzle_day2
 import puzzle_day3
 import puzzle_day4
+import puzzle_day5
 
 if __name__ == '__main__':
 
@@ -26,3 +27,8 @@ if __name__ == '__main__':
         print(puzzle_day4.count_xmas())
         print("DAY 4 SECOND PART")
         print(puzzle_day4.count_mas())
+    elif int(x) == 5:
+        print("DAY 5 FIRST PART")
+        print(puzzle_day5.print_order())
+        print("DAY 5 SECOND PART")
+        print(puzzle_day5.print_order_and_fix())
