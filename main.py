@@ -3,6 +3,8 @@ import puzzle_day2
 import puzzle_day3
 import puzzle_day4
 import puzzle_day5
+import puzzle_day6
+import puzzle_day7
 
 if __name__ == '__main__':
 
@@ -32,3 +34,13 @@ if __name__ == '__main__':
         print(puzzle_day5.print_order())
         print("DAY 5 SECOND PART")
         print(puzzle_day5.print_order_and_fix())
+    elif int(x) == 6:
+        print("DAY 6 FIRST PART")
+        print(puzzle_day6.guard_movement())
+        print("DAY 6 SECOND PART")
+        print(puzzle_day6.loops_found())
+    elif int(x) == 7:
+        print("DAY 7 FIRST PART")
+        puzzle_day7.add_mul()
+        print("DAY 7 SECOND PART")
+        puzzle_day7.add_mul_concat()
