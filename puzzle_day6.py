@@ -1,35 +1,4 @@
-with open('input/day6.txt', 'r') as f:
-    data = f.read()
-
-grid_list = [[position for position in element] for element in data.split("\n")]
-
-grid = {(x, y): grid_list[y][x] for y in range(len(grid_list)) for x in range(len(grid_list[0]))}
-
-GRID_WIDTH, GRID_HEIGHT = (len(grid_list[0]), len(grid_list))
-
-# directions
-DIRECTIONS = {'^': (0, -1),
-              '>': (1, 0),
-              'v': (0, 1),
-              '<': (-1, 0)}
-
-NEXT_DIRECTIONS = {'^': '>',
-                   '>': 'v',
-                   'v': '<',
-                   '<': '^'}
-
-BLOCKAGE = '#'
-
-# find START_POSITION
-START_POSITION = None
-START_DIRECTION = '^'
-
-for y, row in enumerate(grid_list):
-    if not START_POSITION:
-        for x, position in enumerate(row):
-            if position == '^':
-                START_POSITION = (x, y)
-                break
+import multiprocessing
 
 
 def get_data():
@@ -98,31 +67,96 @@ def guard_movement():
                 direction = '^'
 
 
-def loops_found(grid=grid, start_position=START_POSITION, start_direction=START_DIRECTION):
-    num_of_possible_loops = 0
-    for position in grid.keys():
-        steps_taken = set()
-        current_position = start_position
-        current_direction = start_direction
-        while True:
-            x_current, y_current = current_position
-            x_direction, y_direction = DIRECTIONS[current_direction]
-            next_position = (x_current + x_direction, y_current + y_direction)
-            x_next, y_next = next_position
+# check if position is in bounds
+def in_bounds(x, y, width, height):
+    return x in range(width) and y in range(height)
 
-            if x_next < 0 or x_next > GRID_WIDTH - 1 or y_next < 0 or y_next > GRID_HEIGHT - 1:  # break out of loop if out of grid bounds
-                break
 
-            if grid[(x_next, y_next)] == BLOCKAGE or next_position == position:  # change direction if real or theoretical blockage is hit
-                current_direction = NEXT_DIRECTIONS[current_direction]
-                continue
+# get list of unique visited positions
+def get_visited(g_x, g_y, width, height, obs, dirs):
+    current_x = g_x
+    current_y = g_y
+    turn = 0
+    visited = [[g_y, g_x]]  # list of visited coordinates
+    while in_bounds(current_x, current_y, width, height):
+        # next position based on direction vector cycle
+        next_x = current_x + dirs[turn % 4][1]
+        next_y = current_y + dirs[turn % 4][0]
 
-            current_position = next_position  # take a step
-            step_key = (next_position, current_direction)
+        if in_bounds(next_x, next_y, width, height):
+            if [next_y, next_x] in obs:
+                turn = turn + 1  # turn right
+            else:
+                current_x = next_x  # move to next
+                current_y = next_y
+                if [current_y, current_x] not in visited:
+                    visited.append([current_y, current_x])  # record as visited
+        else:
+            break
 
-            if step_key in steps_taken:  # loop found
-                num_of_possible_loops += 1
-                break
+    return visited
 
-            steps_taken.add(step_key)
-    return num_of_possible_loops
+
+# check if making pos an obstacle causes loop
+def check_loop(pos):
+    test_obstacles = obstacles[:]
+    test_obstacles.append(pos)
+
+    current_x = guard_x
+    current_y = guard_y
+    turn = 0
+    test_visited = [[guard_y, guard_x, turn % 4]]
+    while in_bounds(current_x, current_y, facility_width, facility_height):
+        # next position based on direction vector cycle
+        next_x = current_x + directions[turn % 4][1]
+        next_y = current_y + directions[turn % 4][0]
+
+        if in_bounds(next_x, next_y, facility_width, facility_height):
+            if [next_y, next_x] in test_obstacles:
+                turn = turn + 1  # turn right
+            else:
+                current_x = next_x  # move to next
+                current_y = next_y
+                if [current_y, current_x, turn % 4] not in test_visited:
+                    test_visited.append([current_y, current_x, turn % 4])  # haven't seen this position from this direction before
+                else:
+                    return True  # seen this position from same direction before
+        else:
+            break
+
+    return False
+
+
+# read input_data from file
+with open("input/day6.txt", "r") as file:
+    input_data = [list(line.strip()) for line in file.readlines()]
+
+facility_map = input_data
+facility_width = len(facility_map[0])
+facility_height = len(facility_map)
+
+# identify coordinates of obstacles and the guard
+obstacles = []
+guard_x = None
+guard_y = None
+for i in range(facility_height):
+    for j in range(facility_width):
+        if input_data[i][j] == "#":
+            obstacles.append([i, j])
+        if input_data[i][j] == "^":
+            guard_x = j
+            guard_y = i
+
+# cycle of turn vectors
+directions = [[-1, 0], [0, 1], [1, 0], [0, -1]]
+
+# build list of unique visited positions
+visited = get_visited(guard_x, guard_y, facility_width, facility_height, obstacles, directions)
+
+
+# check loop for each visited position minus the starting position
+def guard_movement_loop():
+    with multiprocessing.Pool(10) as pool:
+        results = pool.map(check_loop, visited[1:])
+
+    print(results.count(True))

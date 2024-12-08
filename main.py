@@ -5,6 +5,7 @@ import puzzle_day4
 import puzzle_day5
 import puzzle_day6
 import puzzle_day7
+import puzzle_day8
 
 if __name__ == '__main__':
 
@@ -38,9 +39,11 @@ if __name__ == '__main__':
         print("DAY 6 FIRST PART")
         print(puzzle_day6.guard_movement())
         print("DAY 6 SECOND PART")
-        print(puzzle_day6.loops_found())
+        print(puzzle_day6.guard_movement_loop())
     elif int(x) == 7:
         print("DAY 7 FIRST PART")
         puzzle_day7.add_mul()
         print("DAY 7 SECOND PART")
         puzzle_day7.add_mul_concat()
+    elif int(x) == 8:
+        puzzle_day8.main()
