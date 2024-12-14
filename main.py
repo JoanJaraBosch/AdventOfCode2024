@@ -9,6 +9,9 @@ import puzzle_day8
 import puzzle_day9
 import puzzle_day10
 import puzzle_day11
+import puzzle_day12
+import puzzle_day13
+import puzzle_day14
 
 
 if __name__ == '__main__':
@@ -68,10 +71,22 @@ if __name__ == '__main__':
             print(puzzle_day11.iterative_count_end_nodes(25))
             print("DAY 11 SECOND PART")
             print(puzzle_day11.iterative_count_end_nodes(75))
+        elif int(x) == 12:
+            print("DAY 12 FIRST PART AND SECOND PART")
+            print(puzzle_day12.solution())
+        elif int(x) == 13:
+            print("DAY 13 FIRST PART")
+            print(puzzle_day11.iterative_count_end_nodes(25))
+            print("DAY 13 SECOND PART")
+            print(puzzle_day11.iterative_count_end_nodes(75))
+        elif int(x) == 14:
+            print("DAY 14 FIRST PART")
+            print(puzzle_day11.iterative_count_end_nodes(25))
+            print("DAY 14 SECOND PART")
+            print(puzzle_day11.iterative_count_end_nodes(75))
         else:
             print("Not a valid puzzle")
 
         answer = input("Do you want to keep solving puzzles? (Y/n)")
         if str(answer).upper() != "Y":
             boucle = False
-            
