@@ -1,4 +1,5 @@
 import puzzle_day1
+import puzzle_day10
 import puzzle_day2
 import puzzle_day3
 import puzzle_day4
@@ -55,6 +56,6 @@ if __name__ == '__main__':
         print(puzzle_day9.order_map(2))
     elif int(x) == 10:
         print("DAY 10 FIRST PART")
-        print(puzzle_day9.order_map(1))
+        print(puzzle_day10.solve_part1())
         print("DAY 10 SECOND PART")
-        print(puzzle_day9.order_map(2))
+        print(puzzle_day10.solve_part2())
