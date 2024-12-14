@@ -22,8 +22,8 @@ def main():
         n_rows, n_cols = len(grid), len(grid[0])
 
     antennas = get_antennas(grid)
-    antinodes_part1 = set()
-    antinodes_part2 = set()
+    part1 = set()
+    part2 = set()
 
     for locations in antennas.values():
         if len(locations) == 1:
@@ -36,32 +36,32 @@ def main():
                 loc2 = locations[i2]
                 row_diff, coll_diff = loc2[0] - loc1[0], loc2[1] - loc1[1]
 
-                antinodes_part2.add(loc1)
-                antinodes_part2.add(loc2)
+                part2.add(loc1)
+                part2.add(loc2)
 
                 # move from loc1 until out of bounds
-                antinode = (loc1[0] - row_diff, loc1[1] - coll_diff)
-                if on_grid(antinode, n_rows, n_cols):
-                    antinodes_part1.add(antinode)
+                no_node = (loc1[0] - row_diff, loc1[1] - coll_diff)
+                if on_grid(no_node, n_rows, n_cols):
+                    part1.add(no_node)
                     while on_grid(
-                            antinode := (antinode[0] - row_diff, antinode[1] - coll_diff),
+                            no_node := (no_node[0] - row_diff, no_node[1] - coll_diff),
                             n_rows,
                             n_cols,
                     ):
-                        antinodes_part2.add(antinode)
+                        part2.add(no_node)
 
                 # move from loc2 until out of bounds
-                antinode = (loc2[0] + row_diff, loc2[1] + coll_diff)
-                if on_grid(antinode, n_rows, n_cols):
-                    antinodes_part1.add(antinode)
+                no_node = (loc2[0] + row_diff, loc2[1] + coll_diff)
+                if on_grid(no_node, n_rows, n_cols):
+                    part1.add(no_node)
                     while on_grid(
-                            antinode := (antinode[0] + row_diff, antinode[1] + coll_diff),
+                            no_node := (no_node[0] + row_diff, no_node[1] + coll_diff),
                             n_rows,
                             n_cols,
                     ):
-                        antinodes_part2.add(antinode)
+                        part2.add(no_node)
 
     print("DAY 8 FIRST PART")
-    print(len(antinodes_part1))
+    print(len(part1))
     print("DAY 8 SECOND PART")
-    print(len(antinodes_part1 | antinodes_part2))
+    print(len(part1 | part2))

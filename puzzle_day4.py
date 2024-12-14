@@ -2,10 +2,10 @@ def get_data():
     matrix = []
     with open("input/day4.txt", 'r') as file:
         for line in file:
-            linia = []
-            for leter in line.replace("\n", ""):
-                linia.append(leter)
-            matrix.append(linia)
+            lining = []
+            for letter in line.replace("\n", ""):
+                lining.append(letter)
+            matrix.append(lining)
     return matrix
 
 
@@ -16,42 +16,42 @@ def count_xmas():
         j = 0
         while j < len(xmas[i]):
             if xmas[i][j] == 'X':
-                #Mirar derecha
+                # Look right
                 if i + 1 < len(xmas) and xmas[i + 1][j] == 'M':
                     if i + 2 < len(xmas) and xmas[i + 2][j] == 'A':
                         if i + 3 < len(xmas) and xmas[i + 3][j] == 'S':
                             cont = cont + 1
-                #Mirar izquierda
+                # Look left
                 if i - 1 > -1 and xmas[i - 1][j] == 'M':
                     if i - 2 > -1 and xmas[i - 2][j] == 'A':
                         if i - 3 > -1 and xmas[i - 3][j] == 'S':
                             cont = cont + 1
-                #Mirar arriba
+                # Look Up
                 if j + 1 < len(xmas[i]) and xmas[i][j + 1] == 'M':
                     if j + 2 < len(xmas[i]) and xmas[i][j + 2] == 'A':
                         if j + 3 < len(xmas[i]) and xmas[i][j + 3] == 'S':
                             cont = cont + 1
-                #Mirar abajo
+                # Look down
                 if j - 1 > -1 and xmas[i][j - 1] == 'M':
                     if j - 2 > -1 and xmas[i][j - 2] == 'A':
                         if j - 3 > -1 and xmas[i][j - 3] == 'S':
                             cont = cont + 1
-                #Mirar diagonal izquierda arriba
+                # Look left-up
                 if i - 1 > -1 and j - 1 > -1 and xmas[i - 1][j - 1] == 'M':
                     if i - 2 > -1 and j - 2 > -1 and xmas[i - 2][j - 2] == 'A':
                         if i - 3 > -1 and j - 3 > -1 and xmas[i - 3][j - 3] == 'S':
                             cont = cont + 1
-                #Mirar diagonal derecha abajo
+                # Look right-down
                 if i + 1 < len(xmas) and j + 1 < len(xmas[i]) and xmas[i + 1][j + 1] == 'M':
                     if i + 2 < len(xmas) and j + 2 < len(xmas[i]) and xmas[i + 2][j + 2] == 'A':
                         if i + 3 < len(xmas) and j + 3 < len(xmas[i]) and xmas[i + 3][j + 3] == 'S':
                             cont = cont + 1
-                #Mirar diagonal izquierda abajo
+                # Look left down
                 if i - 1 > -1 and j + 1 < len(xmas[i]) and xmas[i - 1][j + 1] == 'M':
                     if i - 2 > -1 and j + 2 < len(xmas[i]) and xmas[i - 2][j + 2] == 'A':
                         if i - 3 > -1 and j + 3 < len(xmas[i]) and xmas[i - 3][j + 3] == 'S':
                             cont = cont + 1
-                #Mirar diagonal derecha arriba
+                # Look right-up
                 if i + 1 < len(xmas) and j - 1 > -1 and xmas[i + 1][j - 1] == 'M':
                     if i + 2 < len(xmas) and j - 2 > -1 and xmas[i + 2][j - 2] == 'A':
                         if i + 3 < len(xmas) and j - 3 > -1 and xmas[i + 3][j - 3] == 'S':

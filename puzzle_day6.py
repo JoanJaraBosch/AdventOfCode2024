@@ -3,18 +3,18 @@ import multiprocessing
 
 def get_data():
     x, y = 0, 0
-    i, j = 0, 0
+    index_i, index_j = 0, 0
     mapa = []
-    with open("input/day6.txt", 'r') as file:
-        for line in file:
+    with open("input/day6.txt", 'r') as file_var:
+        for line in file_var:
             mapa.append(list(line.replace("\n", "")))
             if '^' in line:
-                x = i
+                x = index_i
                 for letter in line:
                     if letter == '^':
-                        y = j
-                    j = j + 1
-            i = i + 1
+                        y = index_j
+                    index_j = index_j + 1
+            index_i = index_i + 1
 
     return mapa, x, y
 
@@ -77,7 +77,7 @@ def get_visited(g_x, g_y, width, height, obs, dirs):
     current_x = g_x
     current_y = g_y
     turn = 0
-    visited = [[g_y, g_x]]  # list of visited coordinates
+    visited_pos = [[g_y, g_x]]  # list of visited coordinates
     while in_bounds(current_x, current_y, width, height):
         # next position based on direction vector cycle
         next_x = current_x + dirs[turn % 4][1]
@@ -89,12 +89,12 @@ def get_visited(g_x, g_y, width, height, obs, dirs):
             else:
                 current_x = next_x  # move to next
                 current_y = next_y
-                if [current_y, current_x] not in visited:
-                    visited.append([current_y, current_x])  # record as visited
+                if [current_y, current_x] not in visited_pos:
+                    visited_pos.append([current_y, current_x])  # record as visited
         else:
             break
 
-    return visited
+    return visited_pos
 
 
 # check if making pos an obstacle causes loop
@@ -118,7 +118,7 @@ def check_loop(pos):
                 current_x = next_x  # move to next
                 current_y = next_y
                 if [current_y, current_x, turn % 4] not in test_visited:
-                    test_visited.append([current_y, current_x, turn % 4])  # haven't seen this position from this direction before
+                    test_visited.append([current_y, current_x, turn % 4])
                 else:
                     return True  # seen this position from same direction before
         else:

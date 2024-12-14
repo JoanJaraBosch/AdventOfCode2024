@@ -6,6 +6,7 @@ import puzzle_day5
 import puzzle_day6
 import puzzle_day7
 import puzzle_day8
+import puzzle_day9
 
 if __name__ == '__main__':
 
@@ -47,3 +48,13 @@ if __name__ == '__main__':
         puzzle_day7.add_mul_concat()
     elif int(x) == 8:
         puzzle_day8.main()
+    elif int(x) == 9:
+        print("DAY 9 FIRST PART")
+        print(puzzle_day9.order_map(1))
+        print("DAY 9 SECOND PART")
+        print(puzzle_day9.order_map(2))
+    elif int(x) == 10:
+        print("DAY 10 FIRST PART")
+        print(puzzle_day9.order_map(1))
+        print("DAY 10 SECOND PART")
+        print(puzzle_day9.order_map(2))

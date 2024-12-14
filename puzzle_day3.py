@@ -9,7 +9,7 @@ def extract_numbers_from_file():
         for line in file:
             matches = pattern.findall(line)
             for match in matches:
-                result = result + (int(match[0])* int(match[1]))
+                result = result + (int(match[0]) * int(match[1]))
 
     return result
 
