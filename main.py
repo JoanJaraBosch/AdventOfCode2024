@@ -76,9 +76,9 @@ if __name__ == '__main__':
             print(puzzle_day12.solution())
         elif int(x) == 13:
             print("DAY 13 FIRST PART")
-            print(puzzle_day11.iterative_count_end_nodes(25))
+            print(puzzle_day13.solver(False))
             print("DAY 13 SECOND PART")
-            print(puzzle_day11.iterative_count_end_nodes(75))
+            print(puzzle_day13.solver(True))
         elif int(x) == 14:
             print("DAY 14 FIRST PART")
             print(puzzle_day11.iterative_count_end_nodes(25))
