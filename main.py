@@ -80,10 +80,8 @@ if __name__ == '__main__':
             print("DAY 13 SECOND PART")
             print(puzzle_day13.solver(True))
         elif int(x) == 14:
-            print("DAY 14 FIRST PART")
-            print(puzzle_day11.iterative_count_end_nodes(25))
-            print("DAY 14 SECOND PART")
-            print(puzzle_day11.iterative_count_end_nodes(75))
+            print("DAY 14 FIRST PART AND SECOND PART")
+            print(puzzle_day14.main())
         else:
             print("Not a valid puzzle")
 
