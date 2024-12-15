@@ -5,7 +5,7 @@ def extract_numbers_from_file():
     pattern = re.compile(r"mul\((\d+),(\d+)\)")
     result = 0
 
-    with open("input/day3.txt", 'r') as file:
+    with open("../input/day3.txt", 'r') as file:
         for line in file:
             matches = pattern.findall(line)
             for match in matches:
@@ -15,7 +15,7 @@ def extract_numbers_from_file():
 
 
 def calculate_enabled_multiplications():
-    with open("input/day3.txt", "r") as file:
+    with open("../input/day3.txt", "r") as file:
         input_data = file.read()
 
     # Define regex patterns to capture `mul`, `do()`, and `don't()` instructions

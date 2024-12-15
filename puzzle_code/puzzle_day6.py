@@ -5,7 +5,7 @@ def get_data():
     x, y = 0, 0
     index_i, index_j = 0, 0
     mapa = []
-    with open("input/day6.txt", 'r') as file_var:
+    with open("../input/day6.txt", 'r') as file_var:
         for line in file_var:
             mapa.append(list(line.replace("\n", "")))
             if '^' in line:
@@ -128,7 +128,7 @@ def check_loop(pos):
 
 
 # read input_data from file
-with open("input/day6.txt", "r") as file:
+with open("../input/day6.txt", "r") as file:
     input_data = [list(line.strip()) for line in file.readlines()]
 
 facility_map = input_data

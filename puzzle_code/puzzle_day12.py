@@ -1,4 +1,4 @@
-data = open("input/day12.txt").read().splitlines()
+data = open("../input/day12.txt").read().splitlines()
 
 G = {i + j * 1j: e for i, row in enumerate(data)
      for j, e in enumerate(row)}

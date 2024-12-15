@@ -4,14 +4,14 @@ from collections import defaultdict, deque
 def print_order():
     dictionary = {}
     result = 0
-    with open("input/day5_part1.txt", 'r') as file:
+    with open("../input/day5_part1.txt", 'r') as file:
         for line in file:
             seq = line.replace("\n", "").split("|")
             if seq[0] not in dictionary:
                 dictionary[seq[0]] = []
             dictionary[seq[0]].append(seq[1])
 
-    with open("input/day5_part2.txt", 'r') as file:
+    with open("../input/day5_part2.txt", 'r') as file:
         for line in file:
             is_valid = True
             line = line.strip().split(",")  # clean line to ","
@@ -38,12 +38,12 @@ def print_order_and_fix():
     incorrect_updates = []
     fixed_sum = 0
 
-    with open("input/day5_part1.txt", 'r') as file:
+    with open("../input/day5_part1.txt", 'r') as file:
         for line in file:
             seq = line.strip().split("|")
             dictionary[seq[0]].append(seq[1])
 
-    with open("input/day5_part2.txt", 'r') as file:
+    with open("../input/day5_part2.txt", 'r') as file:
         for line in file:
             is_valid = True
             update = line.strip().split(",")

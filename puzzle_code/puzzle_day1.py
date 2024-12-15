@@ -1,5 +1,5 @@
 def get_data():
-    f = open("input/day1.txt", "r")
+    f = open("../input/day1.txt", "r")
     first_list = []
     second_list = []
     for x in f:

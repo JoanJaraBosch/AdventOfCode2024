@@ -17,7 +17,7 @@ def on_grid(node, n_rows, n_cols):
 
 
 def main():
-    with open("input/day8.txt", "rt") as f:
+    with open("../input/day8.txt", "rt") as f:
         grid = [line.strip() for line in f]
         n_rows, n_cols = len(grid), len(grid[0])
 

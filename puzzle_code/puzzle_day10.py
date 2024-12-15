@@ -1,6 +1,6 @@
 mapa: [[int]] = []
 
-with open('input/day10.txt', 'r') as file:
+with open('../input/day10.txt', 'r') as file:
     for line in file:
         map_row = []
         for char in line.strip():

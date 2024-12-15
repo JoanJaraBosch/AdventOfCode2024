@@ -25,7 +25,7 @@ def check_report(report):
 
 
 def count_reports_safe():
-    reports = open("input/day2.txt", "r")
+    reports = open("../input/day2.txt", "r")
     safe = 0
     for report in reports:
         report = report.replace("\n", "").split(" ")
@@ -35,7 +35,7 @@ def count_reports_safe():
 
 
 def count_reports_safe_part2():
-    reports = open("input/day2.txt", "r")
+    reports = open("../input/day2.txt", "r")
     result = 0
     for report in reports:
         cont = 0

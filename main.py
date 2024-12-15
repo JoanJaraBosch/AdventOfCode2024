@@ -1,18 +1,5 @@
-import puzzle_day1
-import puzzle_day2
-import puzzle_day3
-import puzzle_day4
-import puzzle_day5
-import puzzle_day6
-import puzzle_day7
-import puzzle_day8
-import puzzle_day9
-import puzzle_day10
-import puzzle_day11
-import puzzle_day12
-import puzzle_day13
-import puzzle_day14
-
+from puzzle_code import puzzle_day10, puzzle_day12, puzzle_day15, puzzle_day3, puzzle_day2, puzzle_day7, puzzle_day5, \
+    puzzle_day14, puzzle_day1, puzzle_day13, puzzle_day6, puzzle_day4, puzzle_day11, puzzle_day8, puzzle_day9
 
 if __name__ == '__main__':
 
@@ -82,6 +69,11 @@ if __name__ == '__main__':
         elif int(x) == 14:
             print("DAY 14 FIRST PART AND SECOND PART")
             print(puzzle_day14.main())
+        elif int(x) == 15:
+            print("DAY 15 FIRST PART")
+            print(puzzle_day15.robot_movement(1))
+            print("DAY 15 SECOND PART")
+            print(puzzle_day15.robot_movement(2))
         else:
             print("Not a valid puzzle")
 

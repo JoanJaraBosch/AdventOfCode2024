@@ -1,9 +1,9 @@
 def get_data(test):
     if test == 0:
-        with open("input/day9.txt", "r") as f:
+        with open("../input/day9.txt", "r") as f:
             memoria = f.readline().replace("\n", "").strip()
     else:
-        with open("input/test_day9.txt", "rt") as f:
+        with open("../input/test_day9.txt", "rt") as f:
             memoria = f.readline().replace("\n", "").strip()
     return memoria
 

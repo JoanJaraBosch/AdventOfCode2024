@@ -1,6 +1,6 @@
 from collections import defaultdict
 
-data = open('input/day11.txt', 'r').read().split('\n')[0].split(' ')
+data = open('../input/day11.txt', 'r').read().split('\n')[0].split(' ')
 data = [int(a) for a in data]
 
 

@@ -6,7 +6,7 @@ def add_mul():
     total = 0
     operators = {operator.add, operator.mul}
 
-    with open('input/day7.txt') as input_file:
+    with open('../input/day7.txt') as input_file:
         for line in input_file:
             (result, numbers) = int(line.split(":")[0]), [int(x) for x in line.split(":")[1].strip().split(" ")]
 
@@ -31,7 +31,7 @@ def add_mul_concat():
     total = 0
     operators = {operator.add, operator.mul, concat}
 
-    with open('input/day7.txt') as input_file:
+    with open('../input/day7.txt') as input_file:
         for line in input_file:
             (result, numbers) = int(line.split(":")[0]), [int(x) for x in line.split(":")[1].strip().split(" ")]
 

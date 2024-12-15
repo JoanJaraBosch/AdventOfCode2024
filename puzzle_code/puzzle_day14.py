@@ -4,7 +4,7 @@ from operator import mul
 import re
 
 import tqdm
-from toolbox import load_as_str, getcwd, Vector
+from puzzle_code.toolbox import load_as_str, getcwd, Vector
 
 
 def parse_input(suffix: str) -> list[tuple[Vector, Vector]]:

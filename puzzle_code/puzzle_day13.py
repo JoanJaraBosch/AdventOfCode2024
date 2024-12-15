@@ -2,7 +2,8 @@ import re
 
 
 def solver(part2):
-    chunks = [[[int(y) for y in re.findall(r'\d+', x)] for x in l.split('\n')] for l in open('input/day13.txt').read().split('\n\n')]
+    chunks = [[[int(y) for y in re.findall(r'\d+', x)] for x in l.split('\n')] for l in open(
+        '../input/day13.txt').read().split('\n\n')]
     total = 0
     for c in chunks:
         if part2:

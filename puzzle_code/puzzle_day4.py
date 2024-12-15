@@ -1,6 +1,6 @@
 def get_data():
     matrix = []
-    with open("input/day4.txt", 'r') as file:
+    with open("../input/day4.txt", 'r') as file:
         for line in file:
             lining = []
             for letter in line.replace("\n", ""):
