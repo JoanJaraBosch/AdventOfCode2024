@@ -1,5 +1,5 @@
 from puzzle_code import puzzle_day10, puzzle_day12, puzzle_day15, puzzle_day3, puzzle_day2, puzzle_day7, puzzle_day5, \
-    puzzle_day14, puzzle_day1, puzzle_day13, puzzle_day6, puzzle_day4, puzzle_day11, puzzle_day8, puzzle_day9
+    puzzle_day14, puzzle_day1, puzzle_day13, puzzle_day6, puzzle_day4, puzzle_day11, puzzle_day8, puzzle_day9, puzzle_day16
 
 if __name__ == '__main__':
 
@@ -74,6 +74,11 @@ if __name__ == '__main__':
             print(puzzle_day15.robot_movement(1))
             print("DAY 15 SECOND PART")
             print(puzzle_day15.robot_movement(2))
+        elif int(x) == 16:
+            print("DAY 16 FIRST PART")
+            print(puzzle_day16.traverse())
+            print("DAY 16 SECOND PART")
+            print(puzzle_day16.find_all_paths())
         else:
             print("Not a valid puzzle")
 

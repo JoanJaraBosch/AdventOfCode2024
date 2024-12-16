@@ -111,9 +111,33 @@ def part1_movement(mapa, directions, cord_x, cord_y):
     return mapa
 
 
-def part2_movement(mapa, directions, cord_x, cord_y):
-    print_mapa(mapa)
-    return mapa
+def part2_movement():
+    warehouse, moves = open("../input/day15.txt").read().split('\n\n')
+    warehouse, robot = [[('[' if i % 2 == 0 else ']') if line[i // 2] == 'O' else line[i // 2] for i in range(len(line) * 2)] for line in warehouse.split()], warehouse.index('@')
+    x, y, directions = robot % (len(warehouse[0]) // 2), robot // (len(warehouse[0]) // 2), {'>': 1, '<': -1, '^': -1, 'v': 1}
+    warehouse[y][x], warehouse[y][x + 1] = '.', '.'
+    for move in ''.join(moves.split()):
+        if move in ['>', '<']:
+            x1 = x + (directions[move])
+            while warehouse[y][x1] in ['[', ']']: x1 += directions[move]
+            if warehouse[y][x1] == '.':
+                for x2 in range(x1, x, -directions[move]): warehouse[y][x2] = warehouse[y][x2 - directions[move]]
+                x += directions[move]
+        else:
+            boxes = [{(x, y)}]
+            while boxes[-1]:
+                boxes.append(set())
+                for box in boxes[-2]:
+                    if warehouse[box[1] + directions[move]][box[0]] == '#': break
+                    if warehouse[box[1] + directions[move]][box[0]] == '[': boxes[-1] |= {(box[0], box[1] + directions[move]), (box[0] + 1, box[1] + directions[move])}
+                    elif warehouse[box[1] + directions[move]][box[0]] == ']': boxes[-1] |= {(box[0], box[1] + directions[move]), (box[0] - 1, box[1] + directions[move])}
+                else: continue
+                break
+            else:
+                for row in list(reversed(boxes)):
+                    for box in row: warehouse[box[1] + directions[move]][box[0]], warehouse[box[1]][box[0]] = warehouse[box[1]][box[0]], '.'
+                y += directions[move]
+    return sum([100 * i + j for i, line in enumerate(warehouse) for j, c in enumerate(line) if c == '['])
 
 
 def robot_movement(part):
@@ -122,7 +146,7 @@ def robot_movement(part):
     if part == 1:
         mapa = part1_movement(mapa, directions, cord_x, cord_y)
     else:
-        mapa = part2_movement(mapa, directions, cord_x, cord_y)
+        return part2_movement()
     return count_distances(mapa, part)
 
 
