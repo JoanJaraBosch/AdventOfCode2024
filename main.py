@@ -1,5 +1,7 @@
-from puzzle_code import puzzle_day10, puzzle_day12, puzzle_day15, puzzle_day3, puzzle_day2, puzzle_day7, puzzle_day5, \
-    puzzle_day14, puzzle_day1, puzzle_day13, puzzle_day6, puzzle_day4, puzzle_day11, puzzle_day8, puzzle_day9, puzzle_day16
+from puzzle_code import (puzzle_day10, puzzle_day12, puzzle_day15, puzzle_day3, puzzle_day2, puzzle_day7, puzzle_day5,
+                         puzzle_day14, puzzle_day1, puzzle_day13, puzzle_day6, puzzle_day4, puzzle_day11, puzzle_day8,
+                         puzzle_day9, puzzle_day16, puzzle_day17, puzzle_day18, puzzle_day19)
+
 
 if __name__ == '__main__':
 
@@ -79,6 +81,21 @@ if __name__ == '__main__':
             print(puzzle_day16.traverse())
             print("DAY 16 SECOND PART")
             print(puzzle_day16.find_all_paths())
+        elif int(x) == 17:
+            print("DAY 17 FIRST PART")
+            print(puzzle_day17.part_1())
+            print("DAY 17 SECOND PART")
+            print(puzzle_day17.part_2())
+        elif int(x) == 18:
+            print("DAY 18 FIRST PART")
+            print(puzzle_day18.part1())
+            print("DAY 18 SECOND PART")
+            print(puzzle_day18.part2())
+        elif int(x) == 19:
+            print("DAY 19 FIRST PART")
+            print(puzzle_day19.part1())
+            print("DAY 19 SECOND PART")
+            print(puzzle_day19.part2())
         else:
             print("Not a valid puzzle")
 
