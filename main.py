@@ -1,6 +1,7 @@
 from puzzle_code import (puzzle_day10, puzzle_day12, puzzle_day15, puzzle_day3, puzzle_day2, puzzle_day7, puzzle_day5,
                          puzzle_day14, puzzle_day1, puzzle_day13, puzzle_day6, puzzle_day4, puzzle_day11, puzzle_day8,
-                         puzzle_day9, puzzle_day16, puzzle_day17, puzzle_day18, puzzle_day19, puzzle_day20)
+                         puzzle_day9, puzzle_day16, puzzle_day17, puzzle_day18, puzzle_day19, puzzle_day20,
+                         puzzle_day21, puzzle_day22, puzzle_day23)
 
 
 if __name__ == '__main__':
@@ -101,6 +102,19 @@ if __name__ == '__main__':
             print(puzzle_day20.part1())
             print("DAY 20 SECOND PART")
             print(puzzle_day20.part2())
+        elif int(x) == 21:
+            print("DAY 21 FIRST PART")
+            print(puzzle_day21.part1)
+            print("DAY 21 SECOND PART")
+            print(puzzle_day21.part2)
+        elif int(x) == 22:
+            print("DAY 22 FIRST PART AND SECOND PART")
+            print(puzzle_day22.day22())
+        elif int(x) == 23:
+            print("DAY 23 FIRST PART")
+            print(puzzle_day23.resolve_part1())
+            print("DAY 23 SECOND PART")
+            print(puzzle_day23.resolve_part2())
         else:
             print("Not a valid puzzle")
 
